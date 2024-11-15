@@ -1,0 +1,84 @@
+.MuiButton-root {
+    background-color: #f16c56;
+  }
+  
+.MuiPaper-root {
+    /* background: #fdf0eb; */
+}
+
+/* index.css */
+.MuiGrid-container {
+    /* background: #fdf0eb; */
+  }
+  
+  .MuiGrid-item {
+    /* background: #fdf0eb; */
+  }
+  
+  .MuiPaper-root {
+    /* background: #fdf0eb; */
+  }
+  
+  .MuiImage-root {
+    /* background: #fdf0eb; */
+  }
+  
+
+  @media (max-width: 768px) { /* Adjust the breakpoint as needed */
+    .hide-on-small-device {
+      display: none;
+    }
+  }
+
+
+  /* Courses Card */
+
+  /* Add this CSS to an external stylesheet or style tag */
+@media (max-width: 767px) {
+  .courses-card {
+    flex-direction: column-reverse;
+  }
+  .course-grid {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .dots2 {
+    display: none;
+  }
+  .dots4{
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .dots1 {
+    display: none;
+  }
+  .About_img img{
+    display: none;
+  }
+
+}
+@media (max-width: 440px){
+  .ribbon_text{
+      font-size: 10px;
+      line-height: 13px;
+      padding: 0;
+      display: none;
+  }
+}
+
+@media (max-width: 440px){
+  .ribbonr{
+      display: block !important;
+  }
+}
+
+
+/* Odd Even index */
+/* CSS for both even and odd indexes on smaller devices */
+/* CSS for both even and odd indexes on smaller devices */
+
+

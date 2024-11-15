@@ -1,0 +1,50 @@
+.Courses_Img img{
+    padding-left: 30px;
+}
+
+.courses_content{
+    padding-top: 10px;
+}
+.orange img{
+    position: absolute;
+    width: 100%;
+    margin-top: -5rem;
+}
+.bulb img{
+    margin-top: 3rem;
+}
+#courses{
+    margin-top: -5rem;
+}
+
+.course-grid{
+  display: flex;
+  flex-direction: column !important;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #fdf0eb;
+  padding: 1rem;
+
+}
+
+.bluetint{
+  background: #fff7ef !important;
+
+}
+
+.breadcrumbs {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .breadcrumb-link {
+    text-decoration: none;
+    /* color: #f2705a; */
+  }
+  
+  .breadcrumb-link:hover {
+    text-decoration: underline;
+  }
+  

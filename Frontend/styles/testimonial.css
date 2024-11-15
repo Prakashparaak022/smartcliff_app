@@ -1,0 +1,54 @@
+#Testimonials{
+    margin-top: 2rem;
+}
+.carousel-container div {
+    display: flex; /* Display the carousel as a row */
+    justify-content: center;
+    width: 90%;
+  }
+  
+.slick-slide {
+margin: 0 10px; /* Add some margin between the slides */
+}
+
+.slick-dots {
+color: #000;
+display: flex !important; /* Ensure the dots are displayed */
+justify-content: center; /* Center the dots horizontally */
+}
+
+.slick-dots li {
+margin: 0 4px; /* Adjust the margin between the dots */
+}
+
+.slick-dots li button {
+font-size: 12px; 
+}
+
+.students {
+color: #ed4d01;
+}
+
+.testimonial-card{
+background-image: url('/assets/images/Testimonial.png');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+text-align: center;
+background-size: 70%;
+background-position: bottom;
+display: flex;
+justify-content: space-around;
+width: 800px;
+height:350px;
+margin: 2rem 5rem;
+}
+
+div .User_title{
+font-weight: 600;
+}
+
+.userImg {
+  width: 100px;
+  height: 100px;
+}

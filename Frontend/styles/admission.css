@@ -1,0 +1,21 @@
+.circles img{
+    position: absolute;
+    text-align: center;
+    /* object-fit: cover; */
+    margin-top: -5rem;
+    width: 100%;
+    z-index: -1;
+}
+
+.title span{
+    color: #ed4d01;
+}
+
+.dots2 img{
+    position: absolute;
+    text-align: center;
+    /* object-fit: cover; */
+    margin-top: 5rem;
+    width: 100%;
+    z-index: -1;
+}

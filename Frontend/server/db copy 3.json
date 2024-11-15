@@ -1,0 +1,100 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Software Development",
+      "title": "Introduction to Software Development",
+      "description": "This course provides an introduction to the fundamentals of software development. It covers various programming languages, algorithms, and software engineering principles. Students will learn the basics of programming and gain a solid understanding of key concepts necessary for building software applications."
+    },
+    {
+      "id": 2,
+      "name": "Software Development",
+      "title": "Advanced Programming Concepts",
+      "description": "This course explores advanced programming concepts such as data structures, algorithms, and design patterns. Students will learn how to write efficient and maintainable code and understand the underlying principles that drive modern software development."
+    },
+    {
+      "id": 3,
+      "name": "Software Development",
+      "title": "Web Development Fundamentals",
+      "description": "This course focuses on the basics of web development, including HTML, CSS, and JavaScript. Students will learn how to build interactive and responsive web applications, as well as understand the core technologies used in web development."
+    },
+    {
+      "id": 4,
+      "name": "Software Development",
+      "title": "Object-Oriented Programming Principles",
+      "description": "This course dives deep into object-oriented programming (OOP) principles. Students will learn how to design and implement robust and scalable software using OOP concepts. They will gain practical experience in applying OOP principles to real-world programming scenarios."
+    },
+    {
+      "id": 5,
+      "name": "Automotive IoT",
+      "title": "Introduction to Automotive IoT",
+      "description": "This course introduces the concept of Automotive Internet of Things (IoT) and its applications in the automotive industry. Students will learn about connected vehicles, smart transportation systems, and the integration of IoT technologies in the automotive sector."
+    },
+    {
+      "id": 6,
+      "name": "Automotive IoT",
+      "title": "Embedded Systems in Automotive",
+      "description": "This course focuses on embedded systems used in automotive applications. Students will learn about sensors, actuators, and communication protocols commonly used in modern vehicles. They will gain hands-on experience in developing embedded systems for automotive use cases."
+    },
+    {
+      "id": 7,
+      "name": "Automotive IoT",
+      "title": "Data Analytics for Automotive IoT",
+      "description": "This course explores data analytics techniques applied to Automotive IoT. Students will learn how to collect, analyze, and interpret vehicle data to extract valuable insights. They will gain knowledge of data analytics tools and methods specific to the automotive domain."
+    },
+    {
+      "id": 8,
+      "name": "Automotive IoT",
+      "title": "Cybersecurity in Automotive IoT",
+      "description": "This course covers the fundamentals of cybersecurity in the context of Automotive IoT. Students will learn about potential vulnerabilities in connected vehicles and the measures to secure them. They will gain knowledge of cybersecurity best practices and techniques relevant to the automotive industry."
+    },
+    {
+      "id": 9,
+      "name": "Functional Testing",
+      "title": "Introduction to Functional Testing",
+      "description": "This course provides an introduction to functional testing methodologies. Students will learn about different testing techniques and tools used to ensure software quality. They will gain practical experience in designing and executing functional tests for various types of software applications."
+    },
+    {
+      "id": 10,
+      "title": "Test Automation Fundamentals",
+      "name": "Functional Testing",
+      "description": "This course focuses on test automation principles and practices. Students will learn how to write automated test scripts and use frameworks for efficient and reliable testing. They will gain hands-on experience in implementing automated testing solutions for different software systems."
+    },
+    {
+      "id": 11,
+      "title": "Performance Testing and Load Testing",
+      "name": "Functional Testing",
+      "description": "This course explores performance testing and load testing techniques. Students will learn how to measure and optimize the performance of software applications under various conditions. They will gain practical knowledge of performance testing tools and strategies to ensure optimal software performance."
+    },
+    {
+      "id": 12,
+      "title": "Security Testing in the Modern Era",
+      "name": "Functional Testing",
+      "description": "This course covers security testing methodologies for identifying vulnerabilities in software systems. Students will learn about common security threats and how to conduct effective security tests. They will gain practical experience in assessing and enhancing the security of software applications."
+    },
+    {
+      "id": 13,
+      "name": "Mechanical Design",
+      "title": "Engineering Drawing and CAD",
+      "description": "This course introduces engineering drawing principles and computer-aided design (CAD) tools. Students will learn how to create technical drawings and 3D models of mechanical components using industry-standard CAD software."
+    },
+    {
+      "id": 14,
+      "name": "Mechanical Design",
+      "title": "Mechanical Design Fundamentals",
+      "description": "This course covers the fundamentals of mechanical design. Students will learn about materials, manufacturing processes, and design considerations for mechanical components. They will gain practical knowledge in designing mechanical systems that meet desired specifications and performance requirements."
+    },
+    {
+      "id": 15,
+      "title": "Finite Element Analysis (FEA)",
+      "name": "Mechanical Design",
+      "description": "This course focuses on Finite Element Analysis (FEA) techniques for mechanical design. Students will learn how to simulate and analyze the structural behavior of mechanical parts using FEA software. They will gain practical experience in evaluating and optimizing the performance of mechanical designs."
+    },
+    {
+      "id": 16,
+      "name": "Mechanical Design",
+      "title": "Design Optimization and Prototyping",
+      "description": "This course explores design optimization methods and prototyping techniques. Students will learn how to improve the performance and efficiency of mechanical designs through iterative processes. They will gain practical skills in using computer simulations and rapid prototyping tools to validate and refine mechanical designs."
+    }
+  ]
+}

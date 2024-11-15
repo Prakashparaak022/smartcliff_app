@@ -1,0 +1,88 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Software Development",
+      "title": "MERN (MongoDB, Express.js, React, Node.js)",
+      "description": "The MERN (MongoDB, Express.js, React, Node.js) stack has gained significant popularity among developers due to its flexibility, efficiency, and ease of use in developing modern web applications."
+    },
+    {
+      "id": 2,
+      "name": "Software Development",
+      "title": "MEAN (MongoDB, Express.js, Angular, Node.js)",
+      "description": "MEAN (MongoDB, Express.js, Angular, Node.js) is a NoSQL database that allows for flexible and scalable data storage. In the course, students will perform CRUD (Create, Read, Update, Delete) operations and design efficient database schemas."
+    },
+    {
+      "id": 3,
+      "name": "Software Development",
+      "title": ".Net development",
+      "description": "A .NET course provides comprehensive training in the Microsoft .NET framework, equipping students with the skills to develop robust and scalable web and desktop applications."
+    },
+    {
+      "id": 4,
+      "name": "Automotive IoT",
+      "title": "SENSOR (Sensing, Data Collection, and Analysis)",
+      "description": "This course dives deep into object-oriented programming (OOP) principles. Students will learn how to design and implement robust and scalable software using OOP concepts. They will gain practical experience in applying OOP principles to real-world programming scenarios."
+    },
+    {
+      "id": 5,
+      "name": "Automotive IoT",
+      "title": "Embedded System Design",
+      "description": "Embedded systems are specialized computer systems designed to perform specific tasks within larger systems and dedicated to performing a specific function with real-time requirements."
+    },
+    {
+      "id": 6,
+      "name": "Testing Track",
+      "title": "Real Time System",
+      "description": "Real-time systems are computer systems that must respond to external events within strict timing constraints. They are designed to process data in real-time predictable responses to critical tasks."
+    },
+    {
+      "id": 7,
+      "name": "Testing Track",
+      "title": "Software Testing",
+      "description": "Software testing is a crucial phase in the software development life cycle that ensures the quality and functionality of a software application. It involves executing a set of predefined test cases and verifying their results."
+    },
+    {
+      "id": 8,
+      "name": "Testing Track",
+      "title": "Certified Agile Tester (CAT)",
+      "description": "The Certified Agile Tester (CAT) course is a comprehensive training program that equips students with the skills and knowledge to become certified agile testers. It covers agile principles, testing methodologies, and practical techniques for successful agile testing."
+    },
+    {
+      "id": 9,
+      "name": "Testing Track",
+      "title": "API Testing",
+      "description": "API testing involves testing the functionality, performance, and security of application programming interfaces (APIs). This course provides hands-on training in API testing techniques and tools to ensure the reliability and robustness of APIs."
+    },
+    {
+      "id": 10,
+      "title": "Testing Track",
+      "name": "Mobile Application Testing",
+      "description": "Mobile application testing is a specialized field that focuses on testing the functionality, usability, and performance of mobile applications. This course provides practical training in mobile app testing methodologies and tools."
+    },
+    {
+      "id": 11,
+      "title": "Mechanical Design",
+      "name": "Fluid Mechanical Design",
+      "description": "Fluid mechanical design involves the analysis and design of systems that involve fluid flow, such as pumps, turbines, and pipes. This course covers the principles and techniques of fluid mechanical design using computational tools and practical examples."
+    },
+    {
+      "id": 12,
+      "title": "Mechanical Design",
+      "name": "Solid Mechanical Design",
+      "description": "Solid mechanical design focuses on the analysis and design of solid components and structures, such as machine parts and load-bearing structures. This course covers the principles of solid mechanical design using computer-aided design (CAD) software and finite element analysis (FEA)."
+    },
+    {
+      "id": 13,
+      "title": "Mechanical Design",
+      "name": "Machine Learning",
+      "description": "Machine learning is a field of study that focuses on the development of algorithms and models that enable computers to learn and make predictions or decisions without explicit programming. This course provides an introduction to machine learning techniques and their application in mechanical design."
+    },
+    {
+      "id": 14,
+      "name": "Mechanical Design",
+      "title": "Thermo Dynamics",
+      "description": "Thermo Dynamics is the study of energy transfer and conversion in mechanical systems. This course covers the principles of thermodynamics and their application in the design and analysis of mechanical systems, such as engines and refrigeration systems."
+    }
+  ]
+}

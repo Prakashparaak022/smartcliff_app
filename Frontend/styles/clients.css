@@ -1,0 +1,26 @@
+#Clients{
+position: relative;
+min-height: 500px;
+}
+.Clients_content{
+padding-top: 3rem;
+}
+.Clients_contents{
+padding: 3rem;
+}
+
+#Clients {
+background-image: url('/assets/images/clientBackground.png');
+background-size: cover;
+background-position: center;
+}
+
+.client-image {
+    transition: filter 0.3s, transform 0.3s;
+    filter: saturate(.5);
+  }
+  
+  .client-image:hover {
+    filter: none;
+    transform: scale(1.1);
+  }

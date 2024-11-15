@@ -1,0 +1,26 @@
+*{
+    /* height: 100vh; */
+}
+
+.follows a{
+    color: #ed4d01;
+    margin-right: 10px;
+    font-size: 30px;
+}
+.links a{
+    text-decoration: none;
+    color: #000;
+}
+.links a:hover{
+    color: #ed4d01;
+    text-decoration: underline;
+}
+.footer{
+    margin-top: 20px;
+    position: relative;
+    bottom: 0 !important;
+    box-shadow: 5px 5px 9px #000;
+}
+.link__item{
+    font-size: 15px !important;
+}

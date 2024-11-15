@@ -1,0 +1,8 @@
+.Contact{
+    display: flex;
+    justify-content: space-between;
+}
+
+.circles{
+    margin-bottom: 4rem;
+}
