@@ -1,5 +1,5 @@
 # Steps to follow
-Create a database in mysql named "smartcliff"
+Create a database in mysql mentioned in ".env"
 
 import the database using "smartcliff.sql" 
 
@@ -7,9 +7,9 @@ import the database using "smartcliff.sql"
 npm install (Both frontend and backend)
 
 # login credentials(login)
-u_id:25,
-u_name:'Prakash',
-u_password:'@1234'
+u_id:1,
+u_name:'Admin',
+u_password:'Admin@123'
 
 # db connection details(.env)
 file path:"/Backend/.env"
