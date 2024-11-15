@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Paper, Typography, Modal, Button } from "@mui/material";
-import TitleComponent from "../Header";
+import TitleComponent from "../pages/Header";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import QuickEnquiry from "../quickenquiry";
+import QuickEnquiry from "../pages/quickenquiry";
 import CancelIcon from "@mui/icons-material/Cancel";
 import Link from "next/link";
 import axios from "axios";
-import CourseDetails from "./CourseDetails";
+import CourseDetails from "../pages/Courses/CourseDetails";
 
 const CoursesList = ({ categoryTitle, categoryFilter }) => {
   const [courses, setCourses] = useState([]);

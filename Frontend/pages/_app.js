@@ -23,8 +23,7 @@ import MechanicalDesignCourses from "./Courses/MechanicalDesignCourses";
 import Layout from "./Layout";
 import QuickEnquiry from "./quickenquiry";
 import EnquiryForms from "./enquiry";
-import { FormDataProvider } from "./FormContext";
-import { FormProvider } from "./FormContext";
+import { FormProvider } from "../components/FormContext.js";
 import "../styles/globals.css";
 import "../styles/footer.css";
 import "../styles/Hero.css";
@@ -41,7 +40,7 @@ import "../styles/form.css";
 import "../styles/navbar.css";
 import "../styles/index.css";
 import SportHouse from "./sportform";
-import Sports from "./dashboard/sports";
+import Sports from "../components/sports";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

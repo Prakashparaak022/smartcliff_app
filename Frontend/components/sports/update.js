@@ -8,7 +8,7 @@ import {
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { updateToServer } from "../taskSlice";
+import { updateToServer } from "../../redux/taskSlice";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const MyModal = ({ open, onClose }) => {
@@ -22,7 +22,7 @@ const MyModal = ({ open, onClose }) => {
 
   const updateTask = () => {
     onClose();
-    dispatch(updateToServer({ id, title, description,name,url }));
+    dispatch(updateToServer({ id, title, description, name, url }));
   };
   useEffect(() => {
     if (Object.keys(selectedTask).length !== 0) {
@@ -71,8 +71,7 @@ const MyModal = ({ open, onClose }) => {
             onChange={(e) => Setname(e.target.value)}
             sx={{ marginBottom: "1rem" }}
             value={name}
-            label="Course Description"
-          >
+            label="Course Description">
             <MenuItem value="Software Development">
               Software Development
             </MenuItem>

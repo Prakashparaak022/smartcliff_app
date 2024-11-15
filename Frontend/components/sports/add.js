@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToServer, deleteToServer, getFromServer } from "../taskSlice";
+import {
+  addToServer,
+  deleteToServer,
+  getFromServer,
+} from "../../redux/taskSlice";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import {
   Button,
@@ -21,9 +25,8 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import MyModal from "./update";
-import { setSelectedTask } from "../taskSlice";
-import { removeFromList } from "../taskSlice";
-
+import { setSelectedTask } from "../../redux/taskSlice";
+import { removeFromList } from "../../redux/taskSlice";
 
 const AddTask = () => {
   const dispatch = useDispatch();
@@ -80,8 +83,7 @@ const AddTask = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-            }}
-          >
+            }}>
             <div style={{ flex: "1", marginRight: "1rem" }}>
               {/* Image */}
               <img
@@ -91,7 +93,7 @@ const AddTask = () => {
               />
             </div>
             <div style={{ flex: "1" }}>
-            <form style={{ textAlign: "center" }}>
+              <form style={{ textAlign: "center" }}>
                 <TextField
                   label="Course Title"
                   variant="outlined"
@@ -129,8 +131,7 @@ const AddTask = () => {
                     id="course-description"
                     onChange={(e) => Setname(e.target.value)}
                     value={name}
-                    label="Course Description"
-                  >
+                    label="Course Description">
                     <MenuItem value="Software Development">
                       Software Development
                     </MenuItem>
@@ -162,14 +163,12 @@ const AddTask = () => {
               display: "flex",
               justifyContent: "center",
               marginBottom: "1rem",
-            }}
-          >
+            }}>
             <select
               id="filter"
               value={selectedFilter}
               onChange={handleFilterChange}
-              style={{ padding: ".5rem", fontSize: "17px" }}
-            >
+              style={{ padding: ".5rem", fontSize: "17px" }}>
               <option value="">All</option>
               {Array.from(new Set(tasksLists.map((task) => task.name))).map(
                 (name) => (
@@ -183,27 +182,50 @@ const AddTask = () => {
           <Grid container spacing={2}>
             {filteredTasks.map((task) => (
               <Grid item xs={12} sm={6} md={4} key={task.id}>
-                <Card style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                <Card
+                  style={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}>
                   <CardContent>
-                  <p><span style={{fontWeight:'bold'}}>Category: </span>{task.name}</p>
-                  <p><span style={{fontWeight:'bold'}}>Title: </span> {task.title}</p>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Category: </span>
+                      {task.name}
+                    </p>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Title: </span>{" "}
+                      {task.title}
+                    </p>
                   </CardContent>
                   <CardMedia
                     component="img"
-                    src={task.url ? task.url : "/assets/images/CoursesImage.jpeg"}
+                    src={
+                      task.url ? task.url : "/assets/images/CoursesImage.jpeg"
+                    }
                     alt={task.url ? "Task Image" : "Default Image"}
                     style={{ height: "200px", objectFit: "cover" }}
                   />
                   <CardActions>
-                    <div style={{ display: "flex", justifyContent: "flex-end", width: "100%",alignItems:'center' }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        width: "100%",
+                        alignItems: "center",
+                      }}>
                       <div>
                         <h3>Actions:</h3>
                       </div>
                       <div>
-                        <IconButton color="primary" onClick={() => updateTask(task)}>
+                        <IconButton
+                          color="primary"
+                          onClick={() => updateTask(task)}>
                           <EditIcon />
                         </IconButton>
-                        <IconButton color="primary" onClick={() => deleteTask(task)}>
+                        <IconButton
+                          color="primary"
+                          onClick={() => deleteTask(task)}>
                           <DeleteIcon />
                         </IconButton>
                       </div>
