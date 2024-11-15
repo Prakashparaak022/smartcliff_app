@@ -20,7 +20,9 @@ function Courses() {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/categories"
+      );
       if (Array.isArray(response.data)) {
         setCategories(response.data);
         console.log("Fetched categories:", response.data);
@@ -34,7 +36,9 @@ function Courses() {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/courses");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/courses"
+      );
       setCourses(response.data);
       console.log("UI fetching");
     } catch (error) {
@@ -61,7 +65,7 @@ function Courses() {
     if (selectedCategory) {
       try {
         const response = await axios.get(
-          `http://localhost:5000/courses?category=${selectedCategory}`
+          `https://smartcliff-app.onrender.com/courses?category=${selectedCategory}`
         );
         setCourses(response.data);
       } catch (error) {
@@ -97,8 +101,7 @@ function Courses() {
             alignItems: "center",
             justifyContent: "center",
             position: "relative",
-          }}
-        >
+          }}>
           <label htmlFor="filter">
             <h1>Filter by:</h1>
           </label>
@@ -106,8 +109,7 @@ function Courses() {
             id="filter"
             value={selectedFilter}
             onChange={handleFilterChange}
-            style={{ padding: ".5rem", fontSize: "17px", marginLeft: ".4rem" }}
-          >
+            style={{ padding: ".5rem", fontSize: "17px", marginLeft: ".4rem" }}>
             <option value="">All</option>
             {categories.map((category) => (
               <option key={category.category_id} value={category.category}>
@@ -125,16 +127,14 @@ function Courses() {
               <Grid item xs={12}>
                 <Typography
                   variant="h5"
-                  style={{ textAlign: "center", marginBottom: "2rem" }}
-                >
+                  style={{ textAlign: "center", marginBottom: "2rem" }}>
                   Oops, it looks like there are no courses assigned yet.
                 </Typography>
               </Grid>
               <Grid
                 item
                 xs={12}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
+                style={{ display: "flex", justifyContent: "center" }}>
                 <img
                   x
                   src="/assets/images/courses404.gif"
@@ -158,15 +158,13 @@ function Courses() {
                   item
                   xs={10}
                   key={course.c_id}
-                  style={{ padding: "2rem" }}
-                >
+                  style={{ padding: "2rem" }}>
                   <Paper elevation={3} style={{ overflow: "hidden" }}>
                     <Grid
                       container
                       className={`courses-card ${
                         index % 2 === 0 ? "even" : "odd"
-                      }`}
-                    >
+                      }`}>
                       {/* Conditional rendering based on even or odd index */}
                       {index % 2 === 0 ? (
                         <>
@@ -177,8 +175,7 @@ function Courses() {
                               style={{
                                 fontWeight: "bold",
                                 marginBottom: "2rem",
-                              }}
-                            >
+                              }}>
                               {course.c_title}
                             </Typography>
                             <Typography variant="p">
@@ -189,15 +186,13 @@ function Courses() {
                                 display: "flex",
                                 justifyContent: "space-between",
                                 marginTop: "1rem",
-                              }}
-                            >
+                              }}>
                               <Link href="/apply">
                                 <Button
                                   variant="contained"
                                   sx={{
                                     marginRight: "1rem",
-                                  }}
-                                >
+                                  }}>
                                   Apply Now
                                 </Button>
                               </Link>
@@ -206,15 +201,13 @@ function Courses() {
                                 sx={{
                                   marginRight: "1rem",
                                 }}
-                                onClick={handleOpenModal}
-                              >
+                                onClick={handleOpenModal}>
                                 Quick Enquiry
                               </Button>
 
                               <Button
                                 variant="contained"
-                                onClick={() => handleOpeCoursenModal(course)}
-                              >
+                                onClick={() => handleOpeCoursenModal(course)}>
                                 View More
                               </Button>
                             </div>
@@ -224,8 +217,8 @@ function Courses() {
                             {course.image_url && (
                               <img
                                 src={
-                                  `http://localhost:5000/${course.image_url}`
-                                    ? `http://localhost:5000/${course.image_url}`
+                                  `https://smartcliff-app.onrender.com/${course.image_url}`
+                                    ? `https://smartcliff-app.onrender.com/${course.image_url}`
                                     : "/assets/images/Software.png"
                                 }
                                 alt={course.c_title}
@@ -247,8 +240,8 @@ function Courses() {
                             {course.image_url && (
                               <img
                                 src={
-                                  `http://localhost:5000/${course.image_url}`
-                                    ? `http://localhost:5000/${course.image_url}`
+                                  `https://smartcliff-app.onrender.com/${course.image_url}`
+                                    ? `https://smartcliff-app.onrender.com/${course.image_url}`
                                     : "/assets/images/Software.png"
                                 }
                                 alt={course.c_title}
@@ -269,8 +262,7 @@ function Courses() {
                               style={{
                                 fontWeight: "bold",
                                 marginBottom: "2rem",
-                              }}
-                            >
+                              }}>
                               {course.c_title}
                             </Typography>
                             <Typography variant="p">
@@ -281,15 +273,13 @@ function Courses() {
                                 display: "flex",
                                 justifyContent: "space-between",
                                 marginTop: "1rem",
-                              }}
-                            >
+                              }}>
                               <Link href="/apply">
                                 <Button
                                   variant="contained"
                                   sx={{
                                     marginRight: "1rem",
-                                  }}
-                                >
+                                  }}>
                                   Apply Now
                                 </Button>
                               </Link>
@@ -298,15 +288,13 @@ function Courses() {
                                 sx={{
                                   marginRight: "1rem",
                                 }}
-                                onClick={handleOpenModal}
-                              >
+                                onClick={handleOpenModal}>
                                 Quick Enquiry
                               </Button>
 
                               <Button
                                 variant="contained"
-                                onClick={() => handleOpeCoursenModal(course)}
-                              >
+                                onClick={() => handleOpeCoursenModal(course)}>
                                 View More
                               </Button>
                             </div>
@@ -327,9 +315,8 @@ function Courses() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-          }}
-        >
-            <CourseDetails course={selectedCourse} onClose={handleCloseModal} />
+          }}>
+          <CourseDetails course={selectedCourse} onClose={handleCloseModal} />
         </Modal>
 
         <Modal
@@ -339,8 +326,7 @@ function Courses() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-          }}
-        >
+          }}>
           <QuickEnquiry onClose={handleCloseModal} />
         </Modal>
       </Layout>

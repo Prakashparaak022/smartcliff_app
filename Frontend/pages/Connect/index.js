@@ -69,7 +69,9 @@ export default function Connect() {
   // Fetch categories
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/categories"
+      );
       if (Array.isArray(response.data)) {
         setCategories(response.data);
       } else {
@@ -87,7 +89,9 @@ export default function Connect() {
   // Fetch services
   const fetchServices = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/servicelists");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/servicelists"
+      );
       if (Array.isArray(response.data)) {
         setServices(response.data);
       } else {
@@ -141,7 +145,7 @@ export default function Connect() {
         try {
           console.log("Fetching category:", selectedCategory);
           const response = await axios.get(
-            `http://localhost:5000/categories/${selectedCategory}`
+            `https://smartcliff-app.onrender.com/categories/${selectedCategory}`
           );
           if (Array.isArray(response.data)) {
             setCategories(response.data);
@@ -257,7 +261,7 @@ export default function Connect() {
     // Check if user already exists
     try {
       const response = await axios.get(
-        `http://localhost:5000/students?std_email=${studentForm.email}`
+        `https://smartcliff-app.onrender.com/students?std_email=${studentForm.email}`
       );
       if (response.data.std_email === email) {
         setErrorMessage("User already exists");
@@ -292,13 +296,16 @@ export default function Connect() {
     });
 
     try {
-      const response = await axios.post("http://localhost:5000/students", {
-        std_firstName: firstName,
-        std_lastName: lastName,
-        std_email: email,
-        std_phone: phone,
-        category: areaOfInterest,
-      });
+      const response = await axios.post(
+        "https://smartcliff-app.onrender.com/students",
+        {
+          std_firstName: firstName,
+          std_lastName: lastName,
+          std_email: email,
+          std_phone: phone,
+          category: areaOfInterest,
+        }
+      );
 
       console.log("Response:", response.data);
 
@@ -364,7 +371,7 @@ export default function Connect() {
     //College
     try {
       const response = await axios.get(
-        `http://localhost:5000/institute?collegeEmail=${collegeForm.email}`
+        `https://smartcliff-app.onrender.com/institute?collegeEmail=${collegeForm.email}`
       );
       if (response.data.collegeEmail === email) {
         setErrorMessage("User already exists");
@@ -379,12 +386,15 @@ export default function Connect() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/institute", {
-        collegeName: collegeName,
-        collegeEmail: collegeEmail,
-        collegePhone: collegePhone,
-        service: serviceType,
-      });
+      const response = await axios.post(
+        "https://smartcliff-app.onrender.com/institute",
+        {
+          collegeName: collegeName,
+          collegeEmail: collegeEmail,
+          collegePhone: collegePhone,
+          service: serviceType,
+        }
+      );
 
       console.log("Response:", response.data);
 
@@ -452,7 +462,7 @@ export default function Connect() {
     // Check if user already exists
     try {
       const response = await axios.get(
-        `http://localhost:5000/corporate?orgEmail=${organizationForm.email}`
+        `https://smartcliff-app.onrender.com/corporate?orgEmail=${organizationForm.email}`
       );
       if (response.data.orgEmail === email) {
         setErrorMessage("User already exists");
@@ -468,12 +478,15 @@ export default function Connect() {
 
     //Post
     try {
-      const response = await axios.post("http://localhost:5000/corporate", {
-        orgName: orgName,
-        orgEmail: orgEmail,
-        orgPhone: orgPhone,
-        service: serviceType,
-      });
+      const response = await axios.post(
+        "https://smartcliff-app.onrender.com/corporate",
+        {
+          orgName: orgName,
+          orgEmail: orgEmail,
+          orgPhone: orgPhone,
+          service: serviceType,
+        }
+      );
 
       console.log("Response:", response.data);
 
@@ -513,8 +526,7 @@ export default function Connect() {
               [defaultTheme.breakpoints.up("lg")]: {
                 margin: "0px -150px",
               },
-            }}
-          >
+            }}>
             <Grid container spacing={4}>
               {/* For students form */}
               <Grid
@@ -525,24 +537,21 @@ export default function Connect() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                }}
-              >
+                }}>
                 <Avatar sx={{ m: 1, bgcolor: "#ed4d01" }}>
                   <SchoolIcon />
                 </Avatar>
                 <Typography
                   component="h1"
                   variant="h5"
-                  style={{ fontWeight: "bold" }}
-                >
+                  style={{ fontWeight: "bold" }}>
                   Students
                 </Typography>
                 <Box
                   component="form"
                   noValidate
                   onSubmit={handleStudentFormSubmit}
-                  sx={{ mt: 3 }}
-                >
+                  sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <TextField
@@ -618,14 +627,12 @@ export default function Connect() {
                         value={studentForm.areaOfInterest}
                         onChange={handleStudentFormChange}
                         error={!!studentForm.errors.areaOfInterest}
-                        helperText={studentForm.errors.areaOfInterest}
-                      >
+                        helperText={studentForm.errors.areaOfInterest}>
                         <MenuItem value="">Select an area of interest</MenuItem>
                         {categories.map((category) => (
                           <MenuItem
                             key={category.category_id}
-                            value={category.category}
-                          >
+                            value={category.category}>
                             {category.category}
                           </MenuItem>
                         ))}
@@ -636,8 +643,7 @@ export default function Connect() {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                  >
+                    sx={{ mt: 3, mb: 2 }}>
                     Submit
                   </Button>
                 </Box>
@@ -652,24 +658,21 @@ export default function Connect() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                }}
-              >
+                }}>
                 <Avatar sx={{ m: 1, bgcolor: "#ed4d01" }}>
                   <AccountBalanceIcon />
                 </Avatar>
                 <Typography
                   component="h1"
                   variant="h5"
-                  sx={{ fontWeight: "bold" }}
-                >
+                  sx={{ fontWeight: "bold" }}>
                   Institutions
                 </Typography>
                 <Box
                   component="form"
                   noValidate
                   onSubmit={handleCollegeFormSubmit}
-                  sx={{ mt: 3 }}
-                >
+                  sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <TextField
@@ -728,14 +731,12 @@ export default function Connect() {
                         value={collegeForm.serviceType}
                         onChange={handleCollegeFormChange}
                         error={!!collegeForm.errors.serviceType}
-                        helperText={collegeForm.errors.serviceType}
-                      >
+                        helperText={collegeForm.errors.serviceType}>
                         <MenuItem value="">Select Service</MenuItem>
                         {services.map((category) => (
                           <MenuItem
                             key={category.s_id}
-                            value={category.service}
-                          >
+                            value={category.service}>
                             {category.service}
                           </MenuItem>
                         ))}
@@ -746,8 +747,7 @@ export default function Connect() {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                  >
+                    sx={{ mt: 3, mb: 2 }}>
                     Submit
                   </Button>
                 </Box>
@@ -762,24 +762,21 @@ export default function Connect() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                }}
-              >
+                }}>
                 <Avatar sx={{ m: 1, bgcolor: "#ed4d01" }}>
                   <ApartmentIcon />
                 </Avatar>
                 <Typography
                   component="h1"
                   variant="h5"
-                  sx={{ fontWeight: "bold" }}
-                >
+                  sx={{ fontWeight: "bold" }}>
                   Corporates
                 </Typography>
                 <Box
                   component="form"
                   noValidate
                   onSubmit={handleOrganizationFormSubmit}
-                  sx={{ mt: 3 }}
-                >
+                  sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <TextField
@@ -838,14 +835,12 @@ export default function Connect() {
                         value={organizationForm.serviceType}
                         onChange={handleOrganizationFormChange}
                         error={!!organizationForm.errors.serviceType}
-                        helperText={organizationForm.errors.serviceType}
-                      >
+                        helperText={organizationForm.errors.serviceType}>
                         <MenuItem value="">Select Service</MenuItem>
                         {services.map((category) => (
                           <MenuItem
                             key={category.s_id}
-                            value={category.service}
-                          >
+                            value={category.service}>
                             {category.service}
                           </MenuItem>
                         ))}
@@ -857,8 +852,7 @@ export default function Connect() {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                  >
+                    sx={{ mt: 3, mb: 2 }}>
                     Submit
                   </Button>
                 </Box>

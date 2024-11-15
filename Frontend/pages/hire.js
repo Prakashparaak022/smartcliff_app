@@ -59,15 +59,18 @@ const HireForm = () => {
       });
 
       try {
-        const response = await axios.post("http://localhost:5000/hire", {
-          h_name: formData.name,
-          h_email: formData.email,
-          h_phoneNumber: formData.phoneNumber,
-          h_companyName: formData.companyName,
-          h_hiringEnquiry: formData.hiringEnquiry,
-          h_message: formData.message,
-          h_designation: formData.designation,
-        });
+        const response = await axios.post(
+          "https://smartcliff-app.onrender.com/hire",
+          {
+            h_name: formData.name,
+            h_email: formData.email,
+            h_phoneNumber: formData.phoneNumber,
+            h_companyName: formData.companyName,
+            h_hiringEnquiry: formData.hiringEnquiry,
+            h_message: formData.message,
+            h_designation: formData.designation,
+          }
+        );
 
         console.log("Response:", response.data);
 
@@ -169,14 +172,17 @@ const HireForm = () => {
       <section id="HireUS">
         <div
           className="circles"
-          style={{ mt: 1, display: { xs: "none", sm: "block" } }}
-        >
+          style={{ mt: 1, display: { xs: "none", sm: "block" } }}>
           <img src={"/assets/images/circles.png"} alt="" className="w-100" />
         </div>
         <Container
           maxWidth="md"
-          style={{ mt: 4, color: "#000", padding: "2rem", borderRadius: "8px" }}
-        >
+          style={{
+            mt: 4,
+            color: "#000",
+            padding: "2rem",
+            borderRadius: "8px",
+          }}>
           <TitleComponent
             title={
               <span style={{ color: "#000" }}>
@@ -276,8 +282,7 @@ const HireForm = () => {
                   variant="contained"
                   color="secondary"
                   onClick={handleReset}
-                  style={{ marginLeft: "1rem" }}
-                >
+                  style={{ marginLeft: "1rem" }}>
                   Reset
                 </Button>
               </Grid>

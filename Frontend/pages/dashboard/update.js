@@ -28,7 +28,9 @@ const MyModal = ({ open, onClose, course }) => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/categories"
+      );
       if (Array.isArray(response.data)) {
         setCategories(response.data);
         console.log("Fetched categories:", response.data);
@@ -46,7 +48,7 @@ const MyModal = ({ open, onClose, course }) => {
 
   const updateCourse = async () => {
     onClose();
-  
+
     try {
       const formData = new FormData();
       formData.append("c_title", title);
@@ -55,9 +57,9 @@ const MyModal = ({ open, onClose, course }) => {
       if (image instanceof File) {
         formData.append("image", image);
       }
-  
+
       const response = await axios.patch(
-        `http://localhost:5000/courses/${course.c_id}`,
+        `https://smartcliff-app.onrender.com/courses/${course.c_id}`,
         formData,
         {
           headers: {
@@ -65,7 +67,7 @@ const MyModal = ({ open, onClose, course }) => {
           },
         }
       );
-  
+
       console.log("Updated Successfully!");
     } catch (error) {
       console.error("Error updating course:", error);
@@ -109,8 +111,7 @@ const MyModal = ({ open, onClose, course }) => {
             onChange={(e) => SetCategory(e.target.value)}
             sx={{ marginBottom: "1rem" }}
             value={Category}
-            label="Course Description"
-          >
+            label="Course Description">
             {categories.map((category) => (
               <MenuItem key={category.category_id} value={category.category}>
                 {category.category}
@@ -123,8 +124,7 @@ const MyModal = ({ open, onClose, course }) => {
           component="label"
           fullWidth
           color="secondary"
-          variant="contained"
-        >
+          variant="contained">
           Update Image
           <input
             type="file"

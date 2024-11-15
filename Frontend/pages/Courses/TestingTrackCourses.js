@@ -13,7 +13,9 @@ const TestingTrackCourses = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/courses");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/courses"
+      );
       setCourses(response.data);
       console.log("UI fetching");
     } catch (error) {
@@ -58,8 +60,7 @@ const TestingTrackCourses = () => {
                 sm={6}
                 md={6}
                 key={course.c_id}
-                style={{ padding: "2rem" }}
-              >
+                style={{ padding: "2rem" }}>
                 <Paper elevation={3} style={{ overflow: "hidden" }}>
                   <Grid container className="courses-card">
                     {isImageOnRight ? (
@@ -70,8 +71,7 @@ const TestingTrackCourses = () => {
                             style={{
                               fontWeight: "bold",
                               marginBottom: "2rem",
-                            }}
-                          >
+                            }}>
                             {course.c_title}
                           </Typography>
                           <Typography variant="p">
@@ -82,8 +82,7 @@ const TestingTrackCourses = () => {
                               display: "flex",
                               justifyContent: "space-between",
                               marginTop: "1rem",
-                            }}
-                          >
+                            }}>
                             <Link href="/apply">
                               <Button
                                 variant="contained"
@@ -92,8 +91,7 @@ const TestingTrackCourses = () => {
                                 }}
                                 endIcon={
                                   <ArrowForwardIcon sx={{ color: "#000" }} />
-                                }
-                              >
+                                }>
                                 Apply Now
                               </Button>
                             </Link>
@@ -105,8 +103,7 @@ const TestingTrackCourses = () => {
                               endIcon={
                                 <ArrowForwardIcon sx={{ color: "#000" }} />
                               }
-                              onClick={handleOpenModal}
-                            >
+                              onClick={handleOpenModal}>
                               Quick Enquiry
                             </Button>
                           </div>
@@ -154,8 +151,7 @@ const TestingTrackCourses = () => {
                             style={{
                               fontWeight: "bold",
                               marginBottom: "2rem",
-                            }}
-                          >
+                            }}>
                             {course.c_title}
                           </Typography>
                           <Typography variant="p">
@@ -166,8 +162,7 @@ const TestingTrackCourses = () => {
                               display: "flex",
                               justifyContent: "space-between",
                               marginTop: "1rem",
-                            }}
-                          >
+                            }}>
                             <Link href="/apply">
                               <Button
                                 variant="contained"
@@ -176,8 +171,7 @@ const TestingTrackCourses = () => {
                                 }}
                                 endIcon={
                                   <ArrowForwardIcon sx={{ color: "#000" }} />
-                                }
-                              >
+                                }>
                                 Apply Now
                               </Button>
                             </Link>
@@ -189,8 +183,7 @@ const TestingTrackCourses = () => {
                               endIcon={
                                 <ArrowForwardIcon sx={{ color: "#000" }} />
                               }
-                              onClick={handleOpenModal}
-                            >
+                              onClick={handleOpenModal}>
                               Quick Enquiry
                             </Button>
                           </div>
@@ -212,8 +205,7 @@ const TestingTrackCourses = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-        }}
-      >
+        }}>
         <QuickEnquiry onClose={handleCloseModal} />
       </Modal>
     </>

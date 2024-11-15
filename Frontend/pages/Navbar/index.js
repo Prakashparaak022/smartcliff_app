@@ -18,7 +18,7 @@ import {
   Toolbar,
   Typography,
   Select,
-  ListItemIcon
+  ListItemIcon,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -104,7 +104,9 @@ export default function Navbar({ window }) {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/categories"
+      );
       if (Array.isArray(response.data)) {
         setCategories(response.data);
         console.log("Fetched categories:", response.data);
@@ -123,7 +125,9 @@ export default function Navbar({ window }) {
 
   const fetchServices = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/servicelists");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/servicelists"
+      );
       if (Array.isArray(response.data)) {
         setServices(response.data);
         console.log("Fetched categories:", response.data);
@@ -142,7 +146,7 @@ export default function Navbar({ window }) {
     if (selectedCategory) {
       try {
         const response = await axios.get(
-          `http://localhost:5000/courses?category=${selectedCategory}`
+          `https://smartcliff-app.onrender.com/courses?category=${selectedCategory}`
         );
         setCourses(response.data);
       } catch (error) {
@@ -156,14 +160,13 @@ export default function Navbar({ window }) {
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
-      sx={{ textAlign: "center", zIndex: "10" }}
-    >
+      sx={{ textAlign: "center", zIndex: "10" }}>
       <Typography variant="h6" sx={{ my: 2, fontWeight: "700" }}>
         Smartcliff
       </Typography>
       <Divider />
       <List>
-      <ListItem disablePadding>
+        <ListItem disablePadding>
           <Link href="/" passHref>
             <ListItemButton sx={{ flexDirection: "row", alignItems: "center" }}>
               <ListItemIcon sx={{ minWidth: "30px" }}>
@@ -184,12 +187,14 @@ export default function Navbar({ window }) {
           </Link>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleToggleCourses} sx={{ flexDirection: "row", alignItems: "center" }}>
+          <ListItemButton
+            onClick={handleToggleCourses}
+            sx={{ flexDirection: "row", alignItems: "center" }}>
             <ListItemIcon sx={{ minWidth: "30px" }}>
               <SchoolIcon />
             </ListItemIcon>
             <Link href="/Courses" passHref>
-            <ListItemText primary="Courses" />
+              <ListItemText primary="Courses" />
             </Link>
           </ListItemButton>
           <Menu
@@ -204,8 +209,7 @@ export default function Navbar({ window }) {
               vertical: "top",
               horizontal: "left",
             }}
-            sx={{ width: "500px", marginRight: "3rem" }}
-          >
+            sx={{ width: "500px", marginRight: "3rem" }}>
             <MenuItem value="">
               <Link href="/Courses" passHref>
                 All Courses
@@ -221,10 +225,10 @@ export default function Navbar({ window }) {
           </Menu>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton sx={{flexDirection:"row", textAlign: "center" }}>
-          <ListItemIcon sx={{ minWidth: "30px" }}>
-                <BuildIcon />
-              </ListItemIcon>
+          <ListItemButton sx={{ flexDirection: "row", textAlign: "center" }}>
+            <ListItemIcon sx={{ minWidth: "30px" }}>
+              <BuildIcon />
+            </ListItemIcon>
             <Link href="/services" passHref>
               <ListItemText primary="Services" />
             </Link>
@@ -241,8 +245,7 @@ export default function Navbar({ window }) {
               vertical: "top",
               horizontal: "left",
             }}
-            sx={{ width: "500px", marginRight: "3rem" }}
-          >
+            sx={{ width: "500px", marginRight: "3rem" }}>
             <MenuItem>
               <Link href="/services" passHref>
                 All Services
@@ -252,8 +255,7 @@ export default function Navbar({ window }) {
               <MenuItem key={service.s_id}>
                 <Link
                   href={`/services/${getServiceRouting(service.service)}`}
-                  passHref
-                >
+                  passHref>
                   {service.service}
                 </Link>
               </MenuItem>
@@ -261,28 +263,26 @@ export default function Navbar({ window }) {
           </Menu>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton sx={{ flexDirection:"row",textAlign: "center" }}>
+          <ListItemButton sx={{ flexDirection: "row", textAlign: "center" }}>
             <ListItemIcon sx={{ minWidth: "30px" }}>
-                <ChatIcon />
-              </ListItemIcon>
+              <ChatIcon />
+            </ListItemIcon>
             <Link href="/enquiry" passHref>
               <ListItemText primary="Enquiry" />
             </Link>
           </ListItemButton>
         </ListItem>
 
-
         <ListItem disablePadding>
           <ListItemButton sx={{ textAlign: "center" }}>
-          <ListItemIcon sx={{ minWidth: "30px" }}>
-                <AccountCircleIcon/>
-              </ListItemIcon>
+            <ListItemIcon sx={{ minWidth: "30px" }}>
+              <AccountCircleIcon />
+            </ListItemIcon>
             <Link href="/login" passHref>
               <ListItemText primary="Login" />
             </Link>
           </ListItemButton>
         </ListItem>
-
       </List>
     </Box>
   );
@@ -300,15 +300,13 @@ export default function Navbar({ window }) {
             height: "50px",
             backgroundColor: "#2c2c2c",
             zIndex: 2,
-          }}
-        >
+          }}>
           <Toolbar
             sx={{
               textAlign: "center",
               marginTop: "-.5rem",
               padding: "2rem",
-            }}
-          >
+            }}>
             <Button
               color="inherit"
               style={{
@@ -322,8 +320,7 @@ export default function Navbar({ window }) {
               }}
               component={Link}
               href="/hire"
-              className="ribbon_text"
-            >
+              className="ribbon_text">
               Hire from us
             </Button>
 
@@ -336,13 +333,12 @@ export default function Navbar({ window }) {
                 fontSize: "13px",
                 padding: "3px 10px",
                 fontWeight: "bold",
-                display:"none"
+                display: "none",
                 // lineHeight:"15px"
               }}
               component={Link}
               href="/hire"
-              className="ribbonr"
-            >
+              className="ribbonr">
               Hire
             </Button>
 
@@ -359,8 +355,7 @@ export default function Navbar({ window }) {
               }}
               className="ribbon_text"
               component={Link}
-              href="/apply"
-            >
+              href="/apply">
               Apply Now
             </Button>
 
@@ -373,13 +368,12 @@ export default function Navbar({ window }) {
                 fontSize: "13px",
                 padding: "3px 10px",
                 fontWeight: "bold",
-                display:"none"
+                display: "none",
                 // lineHeight:"15px"
               }}
               className="ribbonr"
               component={Link}
-              href="/apply"
-            >
+              href="/apply">
               Apply
             </Button>
 
@@ -396,8 +390,7 @@ export default function Navbar({ window }) {
               }}
               component={Link}
               href="/Contact"
-              className="ribbon_text"
-            >
+              className="ribbon_text">
               Contact us
             </Button>
 
@@ -409,14 +402,13 @@ export default function Navbar({ window }) {
                 marginRight: "1rem",
                 fontSize: "13px",
                 padding: "3px 10px",
-                display:"none",
+                display: "none",
                 fontWeight: "bold",
                 // lineHeight:"15px"
               }}
               className="ribbonr"
               component={Link}
-              href="/Contact"
-            >
+              href="/Contact">
               Contact
             </Button>
 
@@ -426,16 +418,23 @@ export default function Navbar({ window }) {
                 fontSize: "14px",
                 marginLeft: "auto",
                 display: { sm: "none", xs: "none", md: "block" },
-              }}
-            >
+              }}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <PhoneIcon
-                  style={{ marginRight: "0.5rem", fontSize: "20px",color:"#f2705a" }}
+                  style={{
+                    marginRight: "0.5rem",
+                    fontSize: "20px",
+                    color: "#f2705a",
+                  }}
                 />
                 <span style={{ marginRight: "1rem" }}>+91 811 007 5700</span>
 
                 <EmailIcon
-                  style={{ marginRight: "0.5rem", fontSize: "20px",color:"#f2705a" }}
+                  style={{
+                    marginRight: "0.5rem",
+                    fontSize: "20px",
+                    color: "#f2705a",
+                  }}
                 />
                 <span>sample@smartcliff.in</span>
               </div>
@@ -451,8 +450,7 @@ export default function Navbar({ window }) {
             top: "50px",
             backgroundColor: "#fdf0eb",
             zIndex: 1,
-          }}
-        >
+          }}>
           <Toolbar>
             <Typography
               variant="h6"
@@ -461,8 +459,7 @@ export default function Navbar({ window }) {
                 flexGrow: 1,
                 fontWeight: "700",
                 letterSpacing: "4px",
-              }}
-            >
+              }}>
               <img
                 src="https://smartcliff.in/assets/images/logo.png"
                 alt="logo"
@@ -476,8 +473,7 @@ export default function Navbar({ window }) {
                     marginRight: "2rem",
                     color: "#000",
                     letterSpacing: "1px",
-                  }}
-                >
+                  }}>
                   Home
                 </Button>
               </Link>
@@ -488,8 +484,7 @@ export default function Navbar({ window }) {
                     marginRight: "2rem",
                     color: "#000",
                     letterSpacing: "1px",
-                  }}
-                >
+                  }}>
                   About
                 </Button>
               </Link>
@@ -500,8 +495,7 @@ export default function Navbar({ window }) {
                   color: "#000",
                   letterSpacing: "1px",
                 }}
-                onClick={handleMenuOpenCourses}
-              >
+                onClick={handleMenuOpenCourses}>
                 Courses
                 <ArrowDropDownIcon />
               </Button>
@@ -513,8 +507,7 @@ export default function Navbar({ window }) {
                   color: "#000",
                   letterSpacing: "1px",
                 }}
-                onClick={handleMenuOpenServices}
-              >
+                onClick={handleMenuOpenServices}>
                 Services
                 <ArrowDropDownIcon />
               </Button>
@@ -526,8 +519,7 @@ export default function Navbar({ window }) {
                     marginRight: "2rem",
                     color: "#000",
                     letterSpacing: "1px",
-                  }}
-                >
+                  }}>
                   Enquiry
                 </Button>
               </Link>
@@ -538,8 +530,7 @@ export default function Navbar({ window }) {
                 sx={{
                   marginRight: "2rem",
                   letterSpacing: "1px",
-                }}
-              >
+                }}>
                 Login
                 {/* <AdminLogin open={open} handleClose={handleClose} /> */}
               </Button>
@@ -553,8 +544,7 @@ export default function Navbar({ window }) {
                 display: { sm: "block", xs: "block", md: "none" },
                 flexGrow: 0,
                 color: "#000",
-              }}
-            >
+              }}>
               <MenuIcon />
             </IconButton>
           </Toolbar>
@@ -574,8 +564,7 @@ export default function Navbar({ window }) {
                 boxSizing: "border-box",
                 width: drawerWidth,
               },
-            }}
-          >
+            }}>
             {drawer}
           </Drawer>
         </Box>

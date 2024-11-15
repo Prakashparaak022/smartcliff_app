@@ -30,7 +30,6 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-
 const AddTask = () => {
   const [courses, setCourses] = useState([]);
   const [title, setTitle] = useState("");
@@ -72,20 +71,23 @@ const AddTask = () => {
       Title: course.c_title,
       Description: course.c_description,
     }));
-  
-    console.log("Titles:", filteredCoursesData.map((course) => course.Title));
 
-    const tableData = filteredCoursesData.map((course,index) => [
-      index +1,
+    console.log(
+      "Titles:",
+      filteredCoursesData.map((course) => course.Title)
+    );
+
+    const tableData = filteredCoursesData.map((course, index) => [
+      index + 1,
       course.Category,
       course.Title,
       course.Description,
     ]);
-  
+
     const doc = new jsPDF();
-  
+
     doc.autoTable({
-      head: [["SI No","Category", "Title", "Description"]],
+      head: [["SI No", "Category", "Title", "Description"]],
       body: tableData,
       headStyles: {
         textColor: [0, 0, 0],
@@ -94,10 +96,9 @@ const AddTask = () => {
         textColor: [0, 0, 0],
       },
     });
-  
+
     doc.save("Courses.pdf");
   };
-  
 
   const handleDescriptionChange = (event) => {
     const value = event.target.value;
@@ -139,9 +140,12 @@ const AddTask = () => {
 
   const handleSaveEdit = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/categories", {
-        category: editingCategoryValue,
-      });
+      const response = await axios.post(
+        "https://smartcliff-app.onrender.com/categories",
+        {
+          category: editingCategoryValue,
+        }
+      );
       fetchCategories();
       setEditingCategoryValue("");
     } catch (error) {
@@ -162,7 +166,9 @@ const AddTask = () => {
   //fetch
   const fetchCourses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/courses");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/courses"
+      );
       setCourses(response.data);
       console.log("Courses Fetched");
     } catch (error) {
@@ -173,7 +179,9 @@ const AddTask = () => {
   //fetch
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/categories"
+      );
       if (Array.isArray(response.data)) {
         setCategories(response.data);
         console.log("Fetched categories:", response.data);
@@ -217,7 +225,7 @@ const AddTask = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/courses",
+        "https://smartcliff-app.onrender.com/courses",
         formData,
         {
           headers: {
@@ -246,7 +254,7 @@ const AddTask = () => {
   const deleteCourse = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/courses/${id}`
+        `https://smartcliff-app.onrender.com/courses/${id}`
       );
       if (response.status === 200) {
         setCourses(courses.filter((course) => course.c_id !== id));
@@ -329,8 +337,7 @@ const AddTask = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-            }}
-          >
+            }}>
             <Grid container spacing={2}>
               <Paper
                 elevation={5}
@@ -338,22 +345,19 @@ const AddTask = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                }}
-              >
+                }}>
                 <Grid item xs={12} md={6}>
                   {/* Carousel */}
                   <Carousel
                     showThumbs={false}
                     showIndicators={false}
                     infiniteLoop={true}
-                    autoPlay={true}
-                  >
+                    autoPlay={true}>
                     {carouselImages.length > 0 ? (
                       carouselImages.map((image, index) => (
                         <div
                           key={index}
-                          style={{ width: "100%", height: "670px" }}
-                        >
+                          style={{ width: "100%", height: "670px" }}>
                           {image}
                         </div>
                       ))
@@ -367,13 +371,11 @@ const AddTask = () => {
                   {/* Form */}
                   <form
                     style={{ textAlign: "left", padding: "2rem" }}
-                    onSubmit={handleSubmit}
-                  >
+                    onSubmit={handleSubmit}>
                     <div>
                       <InputLabel
                         id="course-title-label"
-                        style={{ marginRight: "3px" }}
-                      >
+                        style={{ marginRight: "3px" }}>
                         Course Title
                       </InputLabel>
                       <TextField
@@ -442,14 +444,12 @@ const AddTask = () => {
                           id="course-category"
                           onChange={handleCategoryChange}
                           value={category}
-                          error={categoryError}
-                        >
+                          error={categoryError}>
                           <MenuItem value="">Select Category</MenuItem>
                           {categories.map((category) => (
                             <MenuItem
                               key={category.category_id}
-                              value={category.category}
-                            >
+                              value={category.category}>
                               {category.category}
                             </MenuItem>
                           ))}
@@ -495,8 +495,7 @@ const AddTask = () => {
                         fullWidth
                         color="secondary"
                         variant="contained"
-                        style={{ marginBottom: "1rem" }}
-                      >
+                        style={{ marginBottom: "1rem" }}>
                         Choose Image
                         <input
                           type="file"
@@ -528,14 +527,12 @@ const AddTask = () => {
               display: "flex",
               justifyContent: "center",
               marginBottom: "1rem",
-            }}
-          >
+            }}>
             <select
               id="filter"
               value={selectedFilter}
               onChange={handleFilterChange}
-              style={{ padding: ".5rem", fontSize: "17px" }}
-            >
+              style={{ padding: ".5rem", fontSize: "17px" }}>
               <option value="">All</option>
               {Array.isArray(categories) && categories.length > 0 ? (
                 Array.from(
@@ -553,16 +550,14 @@ const AddTask = () => {
               variant="contained"
               color="success"
               onClick={exportFilteredCoursesToExcel}
-              style={{ marginLeft: "1rem" }}
-            >
+              style={{ marginLeft: "1rem" }}>
               Export to Excel
             </Button>
             <Button
               variant="contained"
               color="error"
               onClick={exportFilteredCoursesToPDF}
-              style={{ marginLeft: "1rem" }}
-            >
+              style={{ marginLeft: "1rem" }}>
               Export to PDF
             </Button>
           </div>
@@ -574,12 +569,11 @@ const AddTask = () => {
                     height: "450px",
                     display: "flex",
                     flexDirection: "column",
-                  }}
-                >
+                  }}>
                   <CardContent>
                     {course.image_url && (
                       <img
-                        src={`http://localhost:5000/${course.image_url}`}
+                        src={`https://smartcliff-app.onrender.com/${course.image_url}`}
                         alt={`Course ${course.c_id}`}
                         style={{ objectFit: "cover", width: "100%" }}
                       />
@@ -601,22 +595,19 @@ const AddTask = () => {
                         position: "relative",
                         width: "100%",
                         alignItems: "center",
-                      }}
-                    >
+                      }}>
                       <div>
                         <h3>Actions:</h3>
                       </div>
                       <div>
                         <IconButton
                           color="primary"
-                          onClick={() => updateCourse(course)}
-                        >
+                          onClick={() => updateCourse(course)}>
                           <EditIcon />
                         </IconButton>
                         <IconButton
                           color="primary"
-                          onClick={() => deleteCourse(course.c_id)}
-                        >
+                          onClick={() => deleteCourse(course.c_id)}>
                           <DeleteIcon />
                         </IconButton>
                       </div>

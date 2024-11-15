@@ -12,8 +12,14 @@ import Layout from "./Layout/index";
 import TitleComponent from "./Header";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { Dialog, DialogContent, DialogTitle, Typography ,IconButton} from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Typography,
+  IconButton,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 
 const Login = () => {
@@ -57,7 +63,7 @@ const Login = () => {
         };
 
         await axios.patch(
-          `http://localhost:5000/users/${userToUpdate.u_id}/password`,
+          `https://smartcliff-app.onrender.com/users/${userToUpdate.u_id}/password`,
           updatedUser
         );
         console.log("Password updated successfully");
@@ -86,7 +92,9 @@ const Login = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const usersResponse = await axios.get("http://localhost:5000/users");
+        const usersResponse = await axios.get(
+          "https://smartcliff-app.onrender.com/users"
+        );
         const fetchedUsers = usersResponse.data;
 
         const matchingUser = fetchedUsers.find(
@@ -111,7 +119,9 @@ const Login = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/users");
+        const response = await axios.get(
+          "https://smartcliff-app.onrender.com/users"
+        );
         const fetchedUsers = response.data;
         setUsers(fetchedUsers);
       } catch (error) {
@@ -195,8 +205,7 @@ const Login = () => {
     <Layout>
       <Dialog
         open={showWelcomeModal}
-        onClose={() => setShowWelcomeModal(false)}
-      >
+        onClose={() => setShowWelcomeModal(false)}>
         <DialogTitle color="primary">Welcome, Admin!</DialogTitle>
         <DialogContent>
           <Typography>You have successfully logged in as an admin.</Typography>
@@ -206,8 +215,7 @@ const Login = () => {
         <Grid
           container
           component="main"
-          sx={{ height: "80vh", marginTop: "4rem" }}
-        >
+          sx={{ height: "80vh", marginTop: "4rem" }}>
           <CssBaseline />
           <Grid
             item
@@ -234,8 +242,7 @@ const Login = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-            }}
-          >
+            }}>
             <Box
               sx={{
                 my: 8,
@@ -243,8 +250,7 @@ const Login = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-              }}
-            >
+              }}>
               <Avatar sx={{ m: 1, bgcolor: "#ed4d01" }}>
                 <LockOutlinedIcon />
               </Avatar>
@@ -255,8 +261,7 @@ const Login = () => {
                 component="form"
                 noValidate
                 onSubmit={handleSubmit}
-                sx={{ mt: 3 }}
-              >
+                sx={{ mt: 3 }}>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
@@ -307,16 +312,14 @@ const Login = () => {
                   textDecoration: "underline",
                 }}
                 onClick={toggleForgotPassword}
-                color={"primary"}
-              >
+                color={"primary"}>
                 Forgot password?
               </Typography>
 
               {showForgotPassword && (
                 <Dialog
                   open={showForgotPassword}
-                  onClose={toggleForgotPassword}
-                >
+                  onClose={toggleForgotPassword}>
                   <DialogTitle></DialogTitle>
 
                   <IconButton
@@ -325,13 +328,17 @@ const Login = () => {
                       top: "0.5rem",
                       right: "0.5rem",
                     }}
-                    onClick={onClose}
-                  >
+                    onClick={onClose}>
                     <CloseIcon />
                   </IconButton>
 
-
-                  <TitleComponent title={<span style={{ color: '#000' }}>Forgot<span> Password</span></span>} />
+                  <TitleComponent
+                    title={
+                      <span style={{ color: "#000" }}>
+                        Forgot<span> Password</span>
+                      </span>
+                    }
+                  />
                   <DialogContent>
                     <TextField
                       fullWidth
@@ -371,8 +378,7 @@ const Login = () => {
                       variant="contained"
                       color="primary"
                       onClick={changePassword}
-                      disabled={!formData.newPassword || !formData.C_id}
-                    >
+                      disabled={!formData.newPassword || !formData.C_id}>
                       Change Password
                     </Button>
                   </DialogContent>

@@ -41,7 +41,9 @@ const EnquiryForms = () => {
 
     const fetchApiData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/enquiry");
+        const response = await axios.get(
+          "https://smartcliff-app.onrender.com/enquiry"
+        );
         if (response.status === 200) {
           setApiData(response.data);
         } else {
@@ -59,7 +61,9 @@ const EnquiryForms = () => {
   //fetch
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/categories"
+      );
       if (Array.isArray(response.data)) {
         setCategories(response.data);
         console.log("Fetched categories:", response.data);
@@ -97,13 +101,16 @@ const EnquiryForms = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post("http://localhost:5000/enquiry", {
-          e_name: EnquiryData.name,
-          e_email: EnquiryData.email,
-          e_phone_number: EnquiryData.phoneNumber,
-          e_message: EnquiryData.message,
-          category: category,
-        });
+        const response = await axios.post(
+          "https://smartcliff-app.onrender.com/enquiry",
+          {
+            e_name: EnquiryData.name,
+            e_email: EnquiryData.email,
+            e_phone_number: EnquiryData.phoneNumber,
+            e_message: EnquiryData.message,
+            category: category,
+          }
+        );
         console.log("Response:", response);
 
         if (response.status === 201) {
@@ -133,7 +140,11 @@ const EnquiryForms = () => {
     if (EnquiryData.email.trim() === "") {
       newErrors.email = "Email is required";
       isValid = false;
-    } else if (!/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(EnquiryData.email)) {
+    } else if (
+      !/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(
+        EnquiryData.email
+      )
+    ) {
       newErrors.email = "Invalid email address";
       isValid = false;
     }
@@ -166,7 +177,9 @@ const EnquiryForms = () => {
       case "email":
         if (value.trim() === "") {
           newErrors.email = "Email is required";
-        } else if (!/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)) {
+        } else if (
+          !/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)
+        ) {
           newErrors.email = "Invalid email address";
         } else {
           delete newErrors.email;
@@ -192,15 +205,13 @@ const EnquiryForms = () => {
     <Layout>
       <div
         className="circles"
-        sx={{ mt: 1, display: { xs: "none", sm: "block" } }}
-      >
+        sx={{ mt: 1, display: { xs: "none", sm: "block" } }}>
         <img src={"/assets/images/circles.png"} alt="" className="w-100" />
       </div>
       <section id="Enquiry">
         <Container
           maxWidth="md"
-          sx={{ mt: 4, color: "#000", padding: "2rem", borderRadius: "8px" }}
-        >
+          sx={{ mt: 4, color: "#000", padding: "2rem", borderRadius: "8px" }}>
           <TitleComponent
             title={
               <span style={{ color: "#000" }}>
@@ -278,14 +289,12 @@ const EnquiryForms = () => {
                       id="course-category"
                       onChange={handleCategoryChange}
                       value={category}
-                      displayEmpty
-                    >
+                      displayEmpty>
                       <MenuItem value="">Select Category</MenuItem>
                       {categories.map((category) => (
                         <MenuItem
                           key={category.category_id}
-                          value={category.category}
-                        >
+                          value={category.category}>
                           {category.category}
                         </MenuItem>
                       ))}
@@ -312,8 +321,7 @@ const EnquiryForms = () => {
                     variant="contained"
                     color="secondary"
                     onClick={resetForm}
-                    style={{ margin: "0px 10px" }}
-                  >
+                    style={{ margin: "0px 10px" }}>
                     Reset
                   </Button>
                 </Grid>

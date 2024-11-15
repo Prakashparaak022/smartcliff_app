@@ -13,7 +13,7 @@ import {
   Button,
   Grid,
   Paper,
-  Typography
+  Typography,
 } from "@mui/material";
 import Layout from "../Layout";
 import TitleComponent from "../Header";
@@ -28,17 +28,12 @@ function TrainingCard({ title, description, image, buttonText, onApplyNow }) {
             style={{
               fontSize: "17px",
               textAlign: "justify",
-            }}
-          >
+            }}>
             {description}
           </Typography>
         </div>
-        <div style={{display:'flex',flexGrow:'1',marginTop:'15px'}}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={onApplyNow}
-          >
+        <div style={{ display: "flex", flexGrow: "1", marginTop: "15px" }}>
+          <Button variant="contained" color="primary" onClick={onApplyNow}>
             {buttonText}
           </Button>
         </div>
@@ -71,9 +66,9 @@ function MCA() {
   const [requirement, SetRequirement] = useState("");
   const [phonenumber, SetPhonenumber] = useState("");
   const [FormSubmitted, setFormSubmitted] = useState(false);
-  
+
   const [errors, setErrors] = useState({});
-  const [service, setService] = useState("MCA"); 
+  const [service, setService] = useState("MCA");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -104,13 +99,16 @@ function MCA() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post("http://localhost:5000/services", {
-          companyName: name,
-          s_email: email,
-          s_phoneNumber: phonenumber,
-          service: service,
-          requirement: requirement,
-        });
+        const response = await axios.post(
+          "https://smartcliff-app.onrender.com/services",
+          {
+            companyName: name,
+            s_email: email,
+            s_phoneNumber: phonenumber,
+            service: service,
+            requirement: requirement,
+          }
+        );
         console.log("Response:", response.data);
 
         if (response.status !== 404) {
@@ -143,7 +141,9 @@ function MCA() {
     if (email.trim() === "") {
       newErrors.email = "Email is required";
       isValid = false;
-    } else if (!/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(email)) {
+    } else if (
+      !/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(email)
+    ) {
       newErrors.email = "Invalid email address";
       isValid = false;
     }
@@ -177,16 +177,18 @@ function MCA() {
       case "companyName":
         if (value.trim() === "") {
           newErrors.companyName = "Full Name is required";
-        }else if(!/^[a-zA-Z\s]+$/.test(value)){
-            newErrors.companyName = "Invalid Name";
-          } else {
+        } else if (!/^[a-zA-Z\s]+$/.test(value)) {
+          newErrors.companyName = "Invalid Name";
+        } else {
           delete newErrors.companyName;
         }
         break;
       case "email":
         if (value.trim() === "") {
           newErrors.email = "Email is required";
-        } else if (!/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)) {
+        } else if (
+          !/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)
+        ) {
           newErrors.email = "Invalid email address";
         } else {
           delete newErrors.email;
@@ -239,13 +241,19 @@ function MCA() {
         <TitleComponent title={trainingContent.title} />
         <Grid container spacing={2} justifyContent="center">
           <Grid item lg={10} sm={6} md={6} style={{ padding: "2rem" }}>
-            <Paper elevation={3} style={{ overflow: "hidden", background: '#fdf0eb' }}>
+            <Paper
+              elevation={3}
+              style={{ overflow: "hidden", background: "#fdf0eb" }}>
               <Grid container className="courses-card" alignItems="center">
                 <TrainingCard
                   {...trainingContent}
                   onApplyNow={handleOpenServicesForm} // Pass the handler here
                 />
-<Grid item lg={6} sm={12} sx={{display: {lg:"block",sm:"none",md:"none"}}}>
+                <Grid
+                  item
+                  lg={6}
+                  sm={12}
+                  sx={{ display: { lg: "block", sm: "none", md: "none" } }}>
                   <img
                     src={trainingContent.image}
                     alt="Training"
@@ -263,10 +271,13 @@ function MCA() {
           </Grid>
         </Grid>
       </Layout>
-      <Dialog open={openServicesForm} onClose={handleCloseServicesForm} maxWidth="sm" fullWidth>
+      <Dialog
+        open={openServicesForm}
+        onClose={handleCloseServicesForm}
+        maxWidth="sm"
+        fullWidth>
         <DialogTitle
-          style={{ fontWeight: "bold", textAlign: "center", fontSize: "25px" }}
-        >
+          style={{ fontWeight: "bold", textAlign: "center", fontSize: "25px" }}>
           MCA<span style={{ color: "#ed4d01" }}> Form</span>
         </DialogTitle>
         <DialogContent>
@@ -313,8 +324,7 @@ function MCA() {
                 name="service"
                 value={service}
                 onChange={handleChange}
-                error={!!errors.service}
-              >
+                error={!!errors.service}>
                 <MenuItem value="" disabled>
                   Select Service
                 </MenuItem>
@@ -334,9 +344,11 @@ function MCA() {
               />
             </FormControl>
             <DialogActions
-              style={{ justifyContent: "center", marginTop: "1rem" }}
-            >
-              <Button onClick={handleCloseServicesForm} variant="contained" color="secondary">
+              style={{ justifyContent: "center", marginTop: "1rem" }}>
+              <Button
+                onClick={handleCloseServicesForm}
+                variant="contained"
+                color="secondary">
                 Close
               </Button>
               <Button type="submit" variant="contained" color="primary">

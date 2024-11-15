@@ -46,7 +46,9 @@ function apply_management() {
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/applications");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/applications"
+      );
       setApplications(response.data);
     } catch (error) {
       setError("Error fetching applications: " + error.message);
@@ -61,7 +63,9 @@ function apply_management() {
       return;
     }
     try {
-      await axios.delete(`http://localhost:5000/applications/${applicationId}`);
+      await axios.delete(
+        `https://smartcliff-app.onrender.com/applications/${applicationId}`
+      );
       setApplications((prevApplications) =>
         prevApplications.filter(
           (application) => application.a_form_id !== applicationId
@@ -151,14 +155,14 @@ function apply_management() {
                     <TableCell style={{ border: "1px solid #e0e0e0" }}>
                       <IconButton
                         variant="outlined"
-                        onClick={() => handleOpenModal(application)}
-                      >
+                        onClick={() => handleOpenModal(application)}>
                         <Visibility style={{ color: "#1976d2" }} />
                       </IconButton>
                       <IconButton
                         variant="contained"
-                        onClick={() => deleteApplication(application.a_form_id)}
-                      >
+                        onClick={() =>
+                          deleteApplication(application.a_form_id)
+                        }>
                         <Delete style={{ color: "#c11919" }} />
                       </IconButton>
                     </TableCell>
@@ -172,15 +176,13 @@ function apply_management() {
             open={openModal}
             onClose={handleCloseModal}
             maxWidth="sm"
-            style={{ fontSize: "18px" }}
-          >
+            style={{ fontSize: "18px" }}>
             <DialogTitle
               style={{
                 textAlign: "center",
                 fontWeight: "bold",
                 fontSize: "23px",
-              }}
-            >
+              }}>
               <span style={{ color: "#f2705a" }}>Application</span> Details
             </DialogTitle>
             <DialogContent sx={{ width: "500px", padding: "20px" }}>
@@ -214,7 +216,10 @@ function apply_management() {
               )}
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleCloseModal} variant="contained" color="primary">
+              <Button
+                onClick={handleCloseModal}
+                variant="contained"
+                color="primary">
                 Close
               </Button>
             </DialogActions>

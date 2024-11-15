@@ -65,7 +65,9 @@ function DetailsManagement() {
 
   const fetchDetails = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/students");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/students"
+      );
       setDetails(response.data);
     } catch (err) {
       setError("Error fetching detail:" + err.message);
@@ -74,7 +76,9 @@ function DetailsManagement() {
 
   const fetchInstitutes = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/institute");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/institute"
+      );
       setInstitutes(response.data);
     } catch (err) {
       setError("Error fetching institutes:" + err.message);
@@ -83,7 +87,9 @@ function DetailsManagement() {
 
   const fetchCorporates = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/corporate");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/corporate"
+      );
       setCorporates(response.data);
     } catch (err) {
       setError("Error fetching corporates:" + err.message);
@@ -93,7 +99,9 @@ function DetailsManagement() {
   //Delete
   const deleteStudent = async (studentId) => {
     try {
-      await axios.delete(`http://localhost:5000/students/${studentId}`);
+      await axios.delete(
+        `https://smartcliff-app.onrender.com/students/${studentId}`
+      );
       fetchDetails();
     } catch (error) {
       console.error("Error deleting student:", error);
@@ -102,7 +110,9 @@ function DetailsManagement() {
 
   const deleteInstitute = async (instituteId) => {
     try {
-      await axios.delete(`http://localhost:5000/institute/${instituteId}`);
+      await axios.delete(
+        `https://smartcliff-app.onrender.com/institute/${instituteId}`
+      );
       fetchInstitutes();
     } catch (error) {
       console.error("Error deleting institute:", error);
@@ -111,7 +121,9 @@ function DetailsManagement() {
 
   const deleteCorporate = async (corporateId) => {
     try {
-      await axios.delete(`http://localhost:5000/corporate/${corporateId}`);
+      await axios.delete(
+        `https://smartcliff-app.onrender.com/corporate/${corporateId}`
+      );
       fetchCorporates();
     } catch (error) {
       console.error("Error deleting corporate:", error);
@@ -168,8 +180,7 @@ function DetailsManagement() {
               marginTop: "10rem",
               display: "flex",
               justifyContent: "space-between",
-            }}
-          >
+            }}>
             <Paper
               elevation={3}
               onClick={() => handleCardClick("student")}
@@ -186,8 +197,7 @@ function DetailsManagement() {
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
-              }}
-            >
+              }}>
               <Avatar style={{ background: "#f2705a", marginBottom: "10px" }}>
                 <PersonOutlinedIcon />
               </Avatar>
@@ -196,29 +206,28 @@ function DetailsManagement() {
                 style={{
                   fontWeight: "bolder",
                   fontFamily: "poppins",
-                }}
-              >
+                }}>
                 Students Enquiries!
               </Typography>
             </Paper>
 
             <Paper
-            elevation={3}
-            onClick={() => handleCardClick('college')}
-            style={{
-              width: '30%',
-              padding: '20px',
-              backgroundColor: activeFilter === 'college' ? '#f2705a' : '#f0f0f0',
-              color: activeFilter === 'college' ? '#fff' : '#000',
-              border:'2px solid #f2705a',
-              fontSize: '19px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-            }}
-          >
+              elevation={3}
+              onClick={() => handleCardClick("college")}
+              style={{
+                width: "30%",
+                padding: "20px",
+                backgroundColor:
+                  activeFilter === "college" ? "#f2705a" : "#f0f0f0",
+                color: activeFilter === "college" ? "#fff" : "#000",
+                border: "2px solid #f2705a",
+                fontSize: "19px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+              }}>
               <Avatar style={{ background: "#f2705a", marginBottom: "10px" }}>
                 <SchoolOutlinedIcon />
               </Avatar>
@@ -227,8 +236,7 @@ function DetailsManagement() {
                 style={{
                   fontWeight: "bolder",
                   fontFamily: "poppins",
-                }}
-              >
+                }}>
                 Institute Enquiries!
               </Typography>
             </Paper>
@@ -242,15 +250,14 @@ function DetailsManagement() {
                 backgroundColor:
                   activeFilter === "organization" ? "#f2705a" : "#f0f0f0",
                 color: activeFilter === "organization" ? "#fff" : "#000",
-                border: '2px solid #f2705a',
+                border: "2px solid #f2705a",
                 fontSize: "19px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
-              }}
-            >
+              }}>
               <Avatar style={{ background: "#f2705a", marginBottom: "10px" }}>
                 <BusinessOutlinedIcon />
               </Avatar>
@@ -259,8 +266,7 @@ function DetailsManagement() {
                 style={{
                   fontWeight: "bolder",
                   fontFamily: "poppins",
-                }}
-              >
+                }}>
                 Corporate Enquiries!
               </Typography>
             </Paper>
@@ -279,8 +285,7 @@ function DetailsManagement() {
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              style={{ padding: "0.5rem" }}
-            >
+              style={{ padding: "0.5rem" }}>
               <option value="all">All</option>
               <option value="student">Student Enquiries</option>
               <option value="college">College Enquiries</option>
@@ -299,8 +304,7 @@ function DetailsManagement() {
                   borderCollapse: "separate",
                   borderSpacing: "0",
                   marginTop: "2rem",
-                }}
-              >
+                }}>
                 <TableHead style={{ backgroundColor: "#e4705d" }}>
                   <TableRow className="text-center">
                     <TableCell style={{ color: "#fff" }}>#</TableCell>
@@ -324,14 +328,12 @@ function DetailsManagement() {
                       <TableCell style={{ border: "1px solid #e0e0e0" }}>
                         <IconButton
                           variant="outlined"
-                          onClick={() => handleOpenStudentModal(detail)}
-                        >
+                          onClick={() => handleOpenStudentModal(detail)}>
                           <Visibility style={{ color: "#1976d2" }} />
                         </IconButton>
                         <IconButton
                           variant="contained"
-                          onClick={() => deleteStudent(detail.std_id)}
-                        >
+                          onClick={() => deleteStudent(detail.std_id)}>
                           <Delete style={{ color: "#c11919" }} />
                         </IconButton>
                       </TableCell>
@@ -353,8 +355,7 @@ function DetailsManagement() {
                   borderCollapse: "separate",
                   borderSpacing: "0",
                   marginTop: "2rem",
-                }}
-              >
+                }}>
                 <TableHead style={{ backgroundColor: "#e4705d" }}>
                   <TableRow className="text-center">
                     <TableCell style={{ color: "#fff" }}>#</TableCell>
@@ -384,14 +385,12 @@ function DetailsManagement() {
                       <TableCell style={{ border: "1px solid #e0e0e0" }}>
                         <IconButton
                           variant="outlined"
-                          onClick={() => handleOpenInstituteModal(institute)}
-                        >
+                          onClick={() => handleOpenInstituteModal(institute)}>
                           <Visibility style={{ color: "#1976d2" }} />
                         </IconButton>
                         <IconButton
                           variant="contained"
-                          onClick={() => deleteInstitute(institute.coll_id)}
-                        >
+                          onClick={() => deleteInstitute(institute.coll_id)}>
                           <Delete style={{ color: "#c11919" }} />
                         </IconButton>
                       </TableCell>
@@ -414,8 +413,7 @@ function DetailsManagement() {
                   borderCollapse: "separate",
                   borderSpacing: "0",
                   marginTop: "2rem",
-                }}
-              >
+                }}>
                 <TableHead style={{ backgroundColor: "#e4705d" }}>
                   <TableRow className="text-center">
                     <TableCell style={{ color: "#fff" }}>#</TableCell>
@@ -445,14 +443,12 @@ function DetailsManagement() {
                       <TableCell style={{ border: "1px solid #e0e0e0" }}>
                         <IconButton
                           variant="outlined"
-                          onClick={() => handleOpenCorporateModal(corporate)}
-                        >
+                          onClick={() => handleOpenCorporateModal(corporate)}>
                           <Visibility style={{ color: "#1976d2" }} />
                         </IconButton>
                         <IconButton
                           variant="contained"
-                          onClick={() => deleteCorporate(corporate.org_id)}
-                        >
+                          onClick={() => deleteCorporate(corporate.org_id)}>
                           <Delete style={{ color: "#c11919" }} />
                         </IconButton>
                       </TableCell>
@@ -467,15 +463,13 @@ function DetailsManagement() {
           open={openStudentModal}
           onClose={handleCloseStudentModal}
           maxWidth="md"
-          fullWidth
-        >
+          fullWidth>
           <DialogTitle
             style={{
               fontWeight: "bold",
               textAlign: "center",
               fontSize: "30px",
-            }}
-          >
+            }}>
             Student<span style={{ color: "#ed4d01" }}> Details</span>
           </DialogTitle>
           <DialogContent>
@@ -510,15 +504,13 @@ function DetailsManagement() {
           open={openInstituteModal}
           onClose={handleCloseInstituteModal}
           maxWidth="md"
-          fullWidth
-        >
+          fullWidth>
           <DialogTitle
             style={{
               fontWeight: "bold",
               textAlign: "center",
               fontSize: "30px",
-            }}
-          >
+            }}>
             Institute<span style={{ color: "#ed4d01" }}> Details</span>
           </DialogTitle>
           <DialogContent>
@@ -552,15 +544,13 @@ function DetailsManagement() {
           open={openCorporateModal}
           onClose={handleCloseCorporateModal}
           maxWidth="md"
-          fullWidth
-        >
+          fullWidth>
           <DialogTitle
             style={{
               fontWeight: "bold",
               textAlign: "center",
               fontSize: "30px",
-            }}
-          >
+            }}>
             Organization<span style={{ color: "#ed4d01" }}> Details</span>
           </DialogTitle>
           <DialogContent>
@@ -585,7 +575,10 @@ function DetailsManagement() {
             )}
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleCloseCorporateModal} variant="contained" color="primary">
+            <Button
+              onClick={handleCloseCorporateModal}
+              variant="contained"
+              color="primary">
               Close
             </Button>
           </DialogActions>

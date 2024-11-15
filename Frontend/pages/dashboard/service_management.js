@@ -33,7 +33,9 @@ function ServiceManagement() {
 
   const fetchServices = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/services");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/services"
+      );
       setServices(response.data);
     } catch (error) {
       setError("Error fetching services: " + error.message);
@@ -48,7 +50,9 @@ function ServiceManagement() {
       return;
     }
     try {
-      await axios.delete(`http://localhost:5000/services/${serviceId}`);
+      await axios.delete(
+        `https://smartcliff-app.onrender.com/services/${serviceId}`
+      );
       setServices((prevServices) =>
         prevServices.filter((service) => service.s_id !== serviceId)
       );
@@ -99,7 +103,7 @@ function ServiceManagement() {
     <>
       <NoSsr>
         <Container>
-         <Navbar />
+          <Navbar />
 
           <div style={{ textAlign: "center", marginTop: "1rem" }}>
             <h1 className="primary" style={{ color: "#f2705a" }}>
@@ -115,7 +119,7 @@ function ServiceManagement() {
             onChange={handleSearchChange}
             InputProps={{
               endAdornment: (
-                <InputAdornment position="end" sx={{color:"#f16c56"}}>
+                <InputAdornment position="end" sx={{ color: "#f16c56" }}>
                   <SearchIcon />
                 </InputAdornment>
               ),
@@ -130,8 +134,7 @@ function ServiceManagement() {
               borderCollapse: "separate",
               borderSpacing: "0",
               marginTop: "5rem",
-            }}
-          >
+            }}>
             <TableHead style={{ backgroundColor: "#e4705d" }}>
               <TableRow className="text-center">
                 <TableCell style={{ color: "#fff" }}>#</TableCell>
@@ -159,14 +162,12 @@ function ServiceManagement() {
                   <TableCell style={{ border: "1px solid #e0e0e0" }}>
                     <IconButton
                       variant="outlined"
-                      onClick={() => handleOpenModal(service)}
-                    >
+                      onClick={() => handleOpenModal(service)}>
                       <Visibility style={{ color: "#1976d2" }} />
                     </IconButton>
                     <IconButton
                       variant="contained"
-                      onClick={() => deleteService(service.s_id)}
-                    >
+                      onClick={() => deleteService(service.s_id)}>
                       <Delete style={{ color: "#c11919" }} />
                     </IconButton>
                   </TableCell>
@@ -180,15 +181,13 @@ function ServiceManagement() {
             open={openModal}
             onClose={handleCloseModal}
             maxWidth="2"
-            style={{ fontSize: "18px" }}
-          >
+            style={{ fontSize: "18px" }}>
             <DialogTitle
               style={{
                 fontWeight: "bold",
                 textAlign: "center",
                 fontSize: "30px",
-              }}
-            >
+              }}>
               Services<span style={{ color: "#ed4d01" }}> Form</span>
             </DialogTitle>
             <DialogContent sx={{ width: "500px", padding: "20px" }}>
@@ -213,7 +212,10 @@ function ServiceManagement() {
               )}
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleCloseModal} variant="contained" color="primary">
+              <Button
+                onClick={handleCloseModal}
+                variant="contained"
+                color="primary">
                 Close
               </Button>
             </DialogActions>

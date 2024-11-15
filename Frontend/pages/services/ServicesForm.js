@@ -53,13 +53,16 @@ const ServicesForm = ({ initialService, open, onClose, onSubmit }) => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post("http://localhost:5000/services", {
-          companyName: name,
-          s_email: email,
-          s_phoneNumber: phonenumber,
-          service: service,
-          requirement: requirement,
-        });
+        const response = await axios.post(
+          "https://smartcliff-app.onrender.com/services",
+          {
+            companyName: name,
+            s_email: email,
+            s_phoneNumber: phonenumber,
+            service: service,
+            requirement: requirement,
+          }
+        );
 
         console.log("Response:", response.data);
 
@@ -134,7 +137,9 @@ const ServicesForm = ({ initialService, open, onClose, onSubmit }) => {
       case "email":
         if (value.trim() === "") {
           newErrors.email = "Email is required";
-        } else if (!/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)) {
+        } else if (
+          !/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)
+        ) {
           newErrors.email = "Invalid email address";
         } else {
           delete newErrors.email;
@@ -173,8 +178,7 @@ const ServicesForm = ({ initialService, open, onClose, onSubmit }) => {
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogTitle
-        style={{ fontWeight: "bold", textAlign: "center", fontSize: "25px" }}
-      >
+        style={{ fontWeight: "bold", textAlign: "center", fontSize: "25px" }}>
         <TitleComponent
           title={
             <span style={{ color: "#000" }}>
@@ -227,8 +231,7 @@ const ServicesForm = ({ initialService, open, onClose, onSubmit }) => {
               name="service"
               value={service}
               onChange={handleChange}
-              error={!!errors.service}
-            >
+              error={!!errors.service}>
               <MenuItem value="" disabled>
                 Select Service
               </MenuItem>
@@ -253,14 +256,12 @@ const ServicesForm = ({ initialService, open, onClose, onSubmit }) => {
             />
           </FormControl>
           <DialogActions
-            style={{ justifyContent: "center", marginTop: "1rem" }}
-          >
+            style={{ justifyContent: "center", marginTop: "1rem" }}>
             <Button
               onClick={onClose}
               variant="contained"
               color="secondary"
-              style={{ color: "#fff" }}
-            >
+              style={{ color: "#fff" }}>
               Close
             </Button>
             <Button type="submit" variant="contained" color="primary">

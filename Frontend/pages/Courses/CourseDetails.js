@@ -7,13 +7,13 @@ const CourseDetails = ({ course, onClose }) => {
   }
 
   return (
-    <Paper elevation={3}  
-    style={{
+    <Paper
+      elevation={3}
+      style={{
         padding: "2rem",
         width: "1000px",
         height: "500px",
-      }}
-      >
+      }}>
       <Typography variant="h6" style={{ marginBottom: "1rem" }}>
         Category: {course.category || "No Category"}
       </Typography>
@@ -26,7 +26,7 @@ const CourseDetails = ({ course, onClose }) => {
       <img
         src={
           course.image_url
-            ? `http://localhost:5000/${course.image_url}`
+            ? `https://smartcliff-app.onrender.com/${course.image_url}`
             : "/assets/images/Software.png"
         }
         alt={course.c_title}

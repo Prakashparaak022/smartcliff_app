@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Grid, Paper, Typography, Modal, Button } from '@mui/material';
-import TitleComponent from '../Header';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import QuickEnquiry from '../quickenquiry';
-import CancelIcon from '@mui/icons-material/Cancel';
-import Link from 'next/link';
-import axios from 'axios';
-import CourseDetails from './CourseDetails';
+import React, { useEffect, useState } from "react";
+import { Grid, Paper, Typography, Modal, Button } from "@mui/material";
+import TitleComponent from "../Header";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import QuickEnquiry from "../quickenquiry";
+import CancelIcon from "@mui/icons-material/Cancel";
+import Link from "next/link";
+import axios from "axios";
+import CourseDetails from "./CourseDetails";
 
 const CoursesList = ({ categoryTitle, categoryFilter }) => {
   const [courses, setCourses] = useState([]);
@@ -14,11 +14,13 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/courses');
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/courses"
+      );
       setCourses(response.data);
-      console.log('UI fetching');
+      console.log("UI fetching");
     } catch (error) {
-      console.error('Error fetching courses:', error);
+      console.error("Error fetching courses:", error);
     }
   };
 
@@ -37,10 +39,12 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
   return (
     <>
       <section>
-        <TitleComponent title={<span style={{ color: '#000' }}>{categoryTitle}</span>} />
+        <TitleComponent
+          title={<span style={{ color: "#000" }}>{categoryTitle}</span>}
+        />
         <Grid container spacing={2} justifyContent="center">
           {courses
-            .filter(course => course.category === categoryFilter)
+            .filter((course) => course.category === categoryFilter)
             .map((course) => {
               const isImageOnRight = course.c_id % 2 === 0;
 
@@ -51,9 +55,8 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
                   sm={6}
                   md={6}
                   key={course.c_id}
-                  style={{ padding: '2rem' }}
-                >
-                  <Paper elevation={3} style={{ overflow: 'hidden' }}>
+                  style={{ padding: "2rem" }}>
+                  <Paper elevation={3} style={{ overflow: "hidden" }}>
                     <Grid container className="courses-card">
                       {isImageOnRight ? (
                         <>
@@ -61,10 +64,9 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
                             <Typography
                               variant="h4"
                               style={{
-                                fontWeight: 'bold',
-                                marginBottom: '2rem',
-                              }}
-                            >
+                                fontWeight: "bold",
+                                marginBottom: "2rem",
+                              }}>
                               {course.c_title}
                             </Typography>
                             <Typography variant="p">
@@ -72,34 +74,31 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
                             </Typography>
                             <div
                               style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                marginTop: '1rem',
-                              }}
-                            >
+                                display: "flex",
+                                justifyContent: "space-between",
+                                marginTop: "1rem",
+                              }}>
                               <Link href="/apply">
                                 <Button
                                   variant="contained"
                                   sx={{
-                                    marginRight: '1rem',
+                                    marginRight: "1rem",
                                   }}
                                   endIcon={
-                                    <ArrowForwardIcon sx={{ color: '#000' }} />
-                                  }
-                                >
+                                    <ArrowForwardIcon sx={{ color: "#000" }} />
+                                  }>
                                   Apply Now
                                 </Button>
                               </Link>
                               <Button
                                 variant="contained"
                                 sx={{
-                                  marginLeft: '1rem',
+                                  marginLeft: "1rem",
                                 }}
                                 endIcon={
-                                  <ArrowForwardIcon sx={{ color: '#000' }} />
+                                  <ArrowForwardIcon sx={{ color: "#000" }} />
                                 }
-                                onClick={handleOpenModal}
-                              >
+                                onClick={handleOpenModal}>
                                 Quick Enquiry
                               </Button>
                             </div>
@@ -109,15 +108,15 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
                               src={
                                 course.url
                                   ? course.url
-                                  : '/assets/images/Software.png'
+                                  : "/assets/images/Software.png"
                               }
                               alt={course.c_title}
-                              width={'70%'}
+                              width={"70%"}
                               style={{
-                                width: '100%',
-                                marginTop: '1rem',
-                                display: 'block',
-                                margin: '0 auto',
+                                width: "100%",
+                                marginTop: "1rem",
+                                display: "block",
+                                margin: "0 auto",
                               }}
                             />
                           </Grid>
@@ -129,15 +128,15 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
                               src={
                                 course.url
                                   ? course.image_url
-                                  : '/assets/images/Software.png'
+                                  : "/assets/images/Software.png"
                               }
                               alt={course.c_title}
-                              width={'70%'}
+                              width={"70%"}
                               style={{
-                                width: '100%',
-                                marginTop: '1rem',
-                                display: 'block',
-                                margin: '0 auto',
+                                width: "100%",
+                                marginTop: "1rem",
+                                display: "block",
+                                margin: "0 auto",
                               }}
                             />
                           </Grid>
@@ -145,10 +144,9 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
                             <Typography
                               variant="h4"
                               style={{
-                                fontWeight: 'bold',
-                                marginBottom: '2rem',
-                              }}
-                            >
+                                fontWeight: "bold",
+                                marginBottom: "2rem",
+                              }}>
                               {course.c_title}
                             </Typography>
                             <Typography variant="p">
@@ -156,34 +154,31 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
                             </Typography>
                             <div
                               style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                marginTop: '1rem',
-                              }}
-                            >
+                                display: "flex",
+                                justifyContent: "space-between",
+                                marginTop: "1rem",
+                              }}>
                               <Link href="/apply">
                                 <Button
                                   variant="contained"
                                   sx={{
-                                    marginRight: '1rem',
+                                    marginRight: "1rem",
                                   }}
                                   endIcon={
-                                    <ArrowForwardIcon sx={{ color: '#000' }} />
-                                  }
-                                >
+                                    <ArrowForwardIcon sx={{ color: "#000" }} />
+                                  }>
                                   Apply Now
                                 </Button>
                               </Link>
                               <Button
                                 variant="contained"
                                 sx={{
-                                  marginLeft: '1rem',
+                                  marginLeft: "1rem",
                                 }}
                                 endIcon={
-                                  <ArrowForwardIcon sx={{ color: '#000' }} />
+                                  <ArrowForwardIcon sx={{ color: "#000" }} />
                                 }
-                                onClick={handleOpenModal}
-                              >
+                                onClick={handleOpenModal}>
                                 Quick Enquiry
                               </Button>
                             </div>
@@ -199,27 +194,26 @@ const CoursesList = ({ categoryTitle, categoryFilter }) => {
       </section>
 
       <Modal
-  open={openCourseModal}
-  onClose={handleCloseModal}
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }}
->
-  {selectedCourse && <CourseDetails course={selectedCourse} onClose={handleCloseModal} />}
-</Modal>
-
+        open={openCourseModal}
+        onClose={handleCloseModal}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+        {selectedCourse && (
+          <CourseDetails course={selectedCourse} onClose={handleCloseModal} />
+        )}
+      </Modal>
 
       <Modal
         open={openModal}
         onClose={handleCloseModal}
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
         <QuickEnquiry onClose={handleCloseModal} />
       </Modal>
     </>

@@ -77,7 +77,7 @@ const ApplyNowForm = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/applications",
+          "https://smartcliff-app.onrender.com/applications",
           {
             a_name: formData.name,
             a_email: formData.email,
@@ -127,7 +127,9 @@ const ApplyNowForm = () => {
     if (formData.email.trim() === "") {
       newErrors.email = "Email is required";
       isValid = false;
-    } else if (!/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(formData.email)) {
+    } else if (
+      !/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(formData.email)
+    ) {
       newErrors.email = "Invalid email address";
       isValid = false;
     }
@@ -166,7 +168,9 @@ const ApplyNowForm = () => {
   //fetch
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(
+        "https://smartcliff-app.onrender.com/categories"
+      );
       if (Array.isArray(response.data)) {
         setCategories(response.data);
 
@@ -199,7 +203,9 @@ const ApplyNowForm = () => {
       case "email":
         if (value.trim() === "") {
           newErrors.email = "Email is required";
-        } else if (!/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)) {
+        } else if (
+          !/\b^[A-Za-z0-9_]+@[A-Za-z]{3,}\.[A-Za-z\.]{2,}$\b/.test(value)
+        ) {
           newErrors.email = "Invalid email address";
         } else {
           delete newErrors.email;
@@ -260,8 +266,7 @@ const ApplyNowForm = () => {
     <Layout>
       <section id="ApplyNow">
         {/* Breadcrumbs */}
-        <div style={{marginLeft:"6rem"}}
-        className="breadcrumbs">
+        <div style={{ marginLeft: "6rem" }} className="breadcrumbs">
           <Link href="/" className="breadcrumb-link">
             Home
           </Link>{" "}
@@ -274,14 +279,12 @@ const ApplyNowForm = () => {
 
         <div
           className="circles"
-          sx={{ mt: 1, display: { xs: "none", sm: "block" } }}
-        >
+          sx={{ mt: 1, display: { xs: "none", sm: "block" } }}>
           <img src={"/assets/images/circles.png"} alt="" className="w-100" />
         </div>
         <Container
           maxWidth="md"
-          sx={{ mt: 4, color: "#000", padding: "2rem", borderRadius: "8px" }}
-        >
+          sx={{ mt: 4, color: "#000", padding: "2rem", borderRadius: "8px" }}>
           <TitleComponent
             title={
               <span style={{ color: "#000" }}>
@@ -349,8 +352,7 @@ const ApplyNowForm = () => {
                   value={formData.degree}
                   onChange={handleChange}
                   error={!!errors.degree}
-                  color="primary"
-                >
+                  color="primary">
                   <MenuItem value="">Select Degree</MenuItem>
                   <MenuItem value="Bachelor">Bachelor</MenuItem>
                   <MenuItem value="Master">Master</MenuItem>
@@ -392,14 +394,12 @@ const ApplyNowForm = () => {
                   value={formData.category}
                   onChange={handleChange}
                   error={!!errors.category}
-                  color="primary"
-                >
+                  color="primary">
                   <MenuItem value="">Select Category</MenuItem>
                   {categories.map((category) => (
                     <MenuItem
                       key={category.category_id}
-                      value={category.category}
-                    >
+                      value={category.category}>
                       {category.category}
                     </MenuItem>
                   ))}
@@ -415,8 +415,7 @@ const ApplyNowForm = () => {
                   variant="contained"
                   color="secondary"
                   onClick={handleReset}
-                  style={{ marginLeft: "1rem" }}
-                >
+                  style={{ marginLeft: "1rem" }}>
                   Reset
                 </Button>
               </Grid>
