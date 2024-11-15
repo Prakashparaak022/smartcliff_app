@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Home from "./Home";
-import AboutSection from "./About";
+import AboutSection from "./about/index.js";
 import Services from "./services";
 import ApplyNowForm from "./apply";
 import ContactUsForm from "./Contact";
